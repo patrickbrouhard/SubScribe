@@ -1,0 +1,33 @@
+---
+media: vidéo
+source: {{ .URL }}
+auteur: {{ .Uploader }}
+publication: {{ .DateStr }}
+tags: {{ yamlList .Tags }}
+status: vérifier
+---
+# {{ .Title }}
+{{ quoteBlock .Description }}
+
+{{ if .Chapters }}
+## 🕒 Chapitres
+{{ formatChapters .Chapters .URL }}
+{{ end }}
+
+{{ if .Summary }}
+{{ .Summary }}
+{{ end }}
+
+---
+{{- if or .Hashtags .YtTags .Categories}}
+## Informations fournies par l'auteur:
+  {{- if .Categories }}
+Catégories: {{ yamlList .Categories }}
+  {{- end }}
+  {{- if .Hashtags }}
+Hashtags mentionnés : {{ joinHashtags .Hashtags }}
+  {{- end }}
+  {{- if .YtTags }}
+Tags Youtube: {{ yamlListInline .YtTags }}
+  {{- end }}
+{{- end }}

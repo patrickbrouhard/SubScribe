@@ -1,0 +1,34 @@
+# Chemins et emplacements
+output_dir: "."
+obsidian_output_dir: ""
+
+# Organisation des fichiers
+save_in_subdir: true
+
+# Métadonnées
+save_raw_json: false
+
+# Sous-titres (préférences et sauvegarde)
+prefer_manual_subs: true
+save_raw_subs: false
+
+# Transcription
+save_transcript: true
+transcript_format: "txt"
+
+# Mode automatique
+auto_mode: false
+
+# AI features
+generate_ai_prompt: true
+prompt_split_threshold: 32000
+
+# Configuration de yt-dlp
+yt_dlp:
+  name: "yt-dlp"
+  path: ""
+  show_warnings: false
+  auto_update_check: true
+
+# Version du fichier de configuration
+config_version: 1

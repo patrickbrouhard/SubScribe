@@ -1,0 +1,20 @@
+---
+media: vidéo
+source: {{ .URL }}
+auteur: {{ .Uploader }}
+publication: {{ .DateStr }}
+tags: {{ yamlList .Tags }}
+status: vérifier
+---
+# {{ .Title }}
+
+{{ yamlList .Categories }}
+{{ quoteBlock .Description }}
+
+## 🕒 Chapitres
+{{ formatChapters .Chapters .URL }}
+
+---
+## Informations fournies par l'auteur:
+Hashtags mentionnés : {{ joinHashtags .Hashtags }}
+Tags Youtube: {{ yamlList .YtTags }}

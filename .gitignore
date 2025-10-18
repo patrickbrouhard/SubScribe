@@ -1,0 +1,78 @@
+# =====================
+# Artéfacts Go / build
+# =====================
+# bin / build directories often used for compiled outputs
+/bin/
+/build/
+/dist/
+
+# compiled binaries (Windows, Linux, macOS)
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.out
+
+# test binaries and coverage
+*.test
+coverage.out
+coverage.*.out
+
+# vendor - ignore if you don't commit vendored deps; remove if you want to vendor
+/vendor/
+
+# Go module cache / build cache (not in repo but safe to ignore)
+GOMODCACHE/
+GOCACHE/
+
+# =====================
+# IDE / Editor
+# =====================
+.vscode/
+# If you ever use JetBrains IDEs:
+.idea/
+
+# =====================
+# OS
+# =====================
+.DS_Store
+Thumbs.db
+
+# =====================
+# Temporary / logs
+# =====================
+*.log
+*.tmp
+*.swp
+*.swo
+*.bak
+tmp/
+temp/
+
+# =====================
+# Configuration files
+# =====================
+# Generally ignore yaml/env/json config files except the explicit asset below
+*.yaml
+*.yml
+*.env
+*.json
+
+# But keep the example yaml and templates located in internal/assets
+!internal/assets/subscribe.example.yaml
+!internal/assets/
+!internal/assets/**/*.tmpl
+!internal/assets/**/*.tpl
+!internal/assets/**/*.html
+!internal/assets/**/*.gotmpl
+
+# If you ever create a directory with configs you want tracked, explicitly un-ignore it here:
+# !path/to/that/dir/
+
+# =====================
+# Other common ignores
+# =====================
+node_modules/
+*.pyc
+__pycache__/

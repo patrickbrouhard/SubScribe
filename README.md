@@ -1,6 +1,6 @@
 # SubScribe
 
-Your personal scribe for all your **Obsidian × YouTube** workflows — written in Go.
+Your personal scribe automating all your **Obsidian × YouTube** workflows — written in Go.
 
 **SubScribe** fetches metadata and subtitles from YouTube videos and generates structured files to help with knowledge management: transcripts and Markdown notes ready for **Obsidian**.
 

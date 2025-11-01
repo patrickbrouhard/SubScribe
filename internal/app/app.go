@@ -197,6 +197,8 @@ func (a *App) Run(ctx context.Context) error {
 	var vaultDir string
 	if a.cfg.ObsidianVaultDir == "" || a.cfg.ObsidianVaultDir == "." {
 		vaultDir = outDir
+	} else {
+		vaultDir = a.cfg.ObsidianVaultDir
 	}
 
 	content, err := a.renderer.Render("obsidian_note.md.tmpl", noteData)

@@ -1,6 +1,7 @@
 package config
 
 import (
+	"bytes"
 	"fmt"
 	"os"
 	"path/filepath"
@@ -118,6 +119,10 @@ func Load(path string) (*Config, error) {
 	if err != nil {
 		return nil, fmt.Errorf("lecture du fichier de configuration %s impossible : %w", path, err)
 	}
+
+	// corriger les chemins Windows avec des backslashes
+	data = bytes.ReplaceAll(data, []byte(`\`), []byte(`/`))
+
 	// On déserialise dans cfg initialisé : les champs absents conservent les valeurs par défaut.
 	if err := yaml.Unmarshal(data, cfg); err != nil {
 		return nil, fmt.Errorf("analyse du fichier de configuration %s impossible : %w", path, err)

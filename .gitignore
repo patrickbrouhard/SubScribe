@@ -76,3 +76,6 @@ temp/
 node_modules/
 *.pyc
 __pycache__/
+
+# Garde les workflows Github Actions
+!.github/workflows/

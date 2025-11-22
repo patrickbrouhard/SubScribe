@@ -1,0 +1,36 @@
+name: Build Windows binary
+
+on:
+  push:
+    tags:
+      - "v*" # Déclenche le workflow dès qu'un tag commençant par "v" est poussé (ex: v0.1.0)
+  workflow_dispatch: # Permet aussi de lancer le workflow manuellement depuis l'onglet Actions
+
+jobs:
+  build:
+    runs-on: windows-latest # Utilise un runner Windows pour générer un exécutable .exe
+
+    env:
+      MAIN_PATH: ./cmd/subscribe # Chemin vers main.go
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        # Récupère le code source du dépôt
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: "1.25.1"
+
+      - name: Build Windows exe
+        run: go build -o subscribe.exe $MAIN_PATH
+        # Compile le programme en .exe en utilisant la variable d'environnement MAIN_PATH
+
+      - name: Upload to GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: subscribe.exe
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        # Attache automatiquement le binaire compilé à la release correspondant au tag

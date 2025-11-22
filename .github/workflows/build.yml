@@ -10,9 +10,6 @@ jobs:
   build:
     runs-on: windows-latest # Utilise un runner Windows pour générer un exécutable .exe
 
-    env:
-      MAIN_PATH: ./cmd/subscribe # Chemin vers main.go
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -24,8 +21,8 @@ jobs:
           go-version: "1.25.1"
 
       - name: Build Windows exe
-        run: go build -o subscribe.exe $MAIN_PATH
-        # Compile le programme en .exe en utilisant la variable d'environnement MAIN_PATH
+        run: go build -o subscribe.exe ./cmd/subscribe
+        # Compile le programme en .exe
 
       - name: Upload to GitHub Release
         uses: softprops/action-gh-release@v1
